@@ -8,7 +8,6 @@ import (
 	"github.com/raulsilva-tech/Address-Finder/internal/infra/webserver/handlers"
 )
 
-
 func main() {
 
 	r := chi.NewRouter()
@@ -19,5 +18,5 @@ func main() {
 
 	r.Get("/address/{cep}", ah.GetFastestAddressAnswer)
 
-	http.ListenAndServe(":8888", r)
+	http.ListenAndServe(":80", r)
 }
