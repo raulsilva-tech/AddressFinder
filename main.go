@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
@@ -17,6 +18,12 @@ func main() {
 	ah := handlers.NewAddressHandler()
 
 	r.Get("/address/{cep}", ah.GetFastestAddressAnswer)
-
-	http.ListenAndServe(":80", r)
+	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
+		w.Write([]byte("It's running"))
+	})
+	fmt.Println("Serving on port 80")
+	err := http.ListenAndServe(":80", r)
+	if err != nil {
+		panic(err)
+	}
 }
