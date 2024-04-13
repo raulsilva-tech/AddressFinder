@@ -21,8 +21,8 @@ func main() {
 	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("It's running"))
 	})
-	fmt.Println("Serving on port 80")
-	err := http.ListenAndServe(":80", r)
+	fmt.Println("Serving on port 9090")
+	err := http.ListenAndServe(":9090", r)
 	if err != nil {
 		panic(err)
 	}
